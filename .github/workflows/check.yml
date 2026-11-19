@@ -2,7 +2,8 @@ name: 発売情報を確認
 
 on:
   schedule:
-    - cron: "15 * * * *"
+    # 毎朝8時（日本時間）。9時の「今日のタスク」メールより前に1回だけ確認する
+    - cron: "0 23 * * *"
   workflow_dispatch:
 
 permissions:
@@ -25,9 +26,7 @@ jobs:
         env:
           SITE_URL: https://deek229.github.io/watch-collab-alert/
           MAX_FETCH: "8"
-          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
-          BREVO_SENDER_EMAIL: ${{ secrets.BREVO_SENDER_EMAIL }}
-          ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
+          SEND_MAIL: "0"
         run: python check.py
       - name: サイトへ反映
         run: |

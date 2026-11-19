@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""新しい発売告知を見て、一覧を更新し、必要ならメールする。"""
+"""新しい発売告知を見て、一覧を更新する。案内メールは朝の「今日のタスク」に載せる。"""
 
 from __future__ import annotations
 
@@ -10,14 +10,12 @@ import re
 import time
 import unicodedata
 import urllib.error
-import urllib.request
 from datetime import datetime
 from pathlib import Path
-from zoneinfo import ZoneInfo
 
 from filter import is_collab_title, normalize
 from parse_page import parse_release
-from pages import JST, build_site, format_long, group_of, parse_when, price_label, primary
+from pages import JST, build_site, format_long
 from sources import collect_candidates, fetch_text
 
 ROOT = Path(__file__).resolve().parent
@@ -201,111 +199,6 @@ def merge_record(old: dict, record: dict) -> bool:
     return changed
 
 
-def worth_email(item: dict, now: datetime) -> bool:
-    if item.get("notified") or item.get("status_override") == "ended":
-        return False
-    if group_of(item, now) == "upcoming":
-        return True
-    release, _known = parse_when(item.get("release_at"))
-    if release is not None and (now.date() - release.date()).days <= 7:
-        return True
-    return False
-
-
-def due_reminders(items: list[dict], now: datetime) -> list[tuple[dict, str]]:
-    if not 7 <= now.hour <= 9:
-        return []
-    today = now.date().isoformat()
-    due = []
-    for item in items:
-        if item.get("status_override") == "ended":
-            continue
-        for key, label in (("preorder_start", "先行予約"), ("release_at", "発売")):
-            value = item.get(key)
-            if not value or not value.startswith(today):
-                continue
-            flag = f"{key}:{today}"
-            if flag in (item.get("reminded") or []):
-                continue
-            due.append((item, label))
-    return due
-
-
-def email_body(items: list[dict], reminders: list[tuple[dict, str]], site_url: str) -> tuple[str, str]:
-    if len(items) == 1 and not reminders:
-        when, label = primary(items[0], datetime.now(JST))
-        subject = f"【{label}】{items[0]['title']}"
-    elif items:
-        subject = f"【コラボ時計】新しい発売情報が{len(items)}件"
-    else:
-        subject = f"【コラボ時計】今日の{reminders[0][1]}です"
-    lines = ["コラボ時計の発売予定です。", ""]
-    for item in items:
-        when, label = primary(item, datetime.now(JST))
-        lines.append(item["title"])
-        lines.append(item.get("summary") or "")
-        if item.get("preorder_start"):
-            lines.append(f"先行予約: {format_long(item['preorder_start'])}")
-        if item.get("preorder_end"):
-            lines.append(f"予約終了: {format_long(item['preorder_end'])}")
-        if item.get("release_at"):
-            lines.append(f"発売: {format_long(item['release_at'])}")
-        if price_label(item):
-            lines.append(f"価格: {price_label(item)}")
-        for condition in item.get("conditions") or []:
-            lines.append(f"注意: {condition}")
-        for channel in (item.get("channels") or [])[:3]:
-            lines.append(f"{channel['name']}: {channel['url']}")
-        for source in item.get("sources") or []:
-            lines.append(f"出典: {source['url']}")
-        if site_url:
-            lines.append(f"ページ: {site_url.rstrip('/')}/items/{item['id']}.html")
-        lines.append("")
-    if reminders:
-        lines.append("今日の予定です。")
-        for item, label in reminders:
-            value = item.get("preorder_start") if label == "先行予約" else item.get("release_at")
-            lines.append(f"{label}: {item['title']} {format_long(value)}")
-            if site_url:
-                lines.append(site_url.rstrip("/") + "/items/" + item["id"] + ".html")
-        lines.append("")
-    if site_url:
-        lines.append("一覧: " + site_url)
-    return subject, "\n".join(lines)
-
-
-def send_email(subject: str, body: str) -> bool:
-    api_key = os.environ.get("BREVO_API_KEY", "").strip()
-    to_addr = os.environ.get("ALERT_EMAIL_TO", "").strip()
-    sender = os.environ.get("BREVO_SENDER_EMAIL", "").strip() or to_addr
-    if not api_key or not to_addr:
-        print("メールはまだ送れません。BREVO_API_KEY と ALERT_EMAIL_TO を設定すると届きます。")
-        return False
-    payload = json.dumps(
-        {
-            "sender": {"name": "コラボ時計の発売予定", "email": sender},
-            "to": [{"email": to_addr}],
-            "subject": subject,
-            "textContent": body,
-        }
-    ).encode("utf-8")
-    request = urllib.request.Request(
-        "https://api.brevo.com/v3/smtp/email",
-        data=payload,
-        headers={"accept": "application/json", "api-key": api_key, "content-type": "application/json"},
-        method="POST",
-    )
-    try:
-        with urllib.request.urlopen(request, timeout=60) as response:
-            response.read()
-    except urllib.error.HTTPError as error:
-        detail = error.read().decode("utf-8", "replace")
-        print(f"メール送信に失敗しました ({error.code}): {detail[:300]}")
-        return False
-    print(f"メールを送りました: {to_addr}")
-    return True
-
-
 def run() -> None:
     load_env()
     now = datetime.now(JST).replace(microsecond=0)
@@ -349,19 +242,6 @@ def run() -> None:
             print(f"掲載済み: {old['title']}")
         time.sleep(0.4)
     site_url = os.environ.get("SITE_URL", "").strip()
-    reminders = due_reminders(items, now)
-    targets = [item for item in items if worth_email(item, now)]
-    if targets or reminders:
-        subject, body = email_body(targets, reminders, site_url)
-        if send_email(subject, body):
-            for item in targets:
-                item["notified"] = True
-                changed = True
-            today = now.date().isoformat()
-            for item, label in reminders:
-                key = "preorder_start" if label == "先行予約" else "release_at"
-                item.setdefault("reminded", []).append(f"{key}:{today}")
-                changed = True
     if changed:
         save_items(items)
         save_seen(seen)

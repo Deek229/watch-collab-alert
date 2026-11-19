@@ -364,7 +364,7 @@ def render_index(items: list[dict], now: datetime) -> str:
     </header>
     {"".join(sections)}
     <footer>
-      <p>掲載 {count}件。新しい告知は、決めたニュース一覧を1時間ごとに確認して足しています。</p>
+      <p>掲載 {count}件。新しい告知は、決めたニュース一覧を1日1回確認して足しています。</p>
       <p>発売日や予約条件は変わることがあります。買う前に、リンク先の最新案内を見てください。</p>
       <p><a href="feed.xml">更新フィード</a></p>
     </footer>

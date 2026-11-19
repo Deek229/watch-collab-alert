@@ -1,0 +1,105 @@
+
+:root {
+  --paper: #e9e2d6;
+  --sheet: #f6f1e8;
+  --ink: #1c1916;
+  --muted: #6f675d;
+  --line: #d5cdc0;
+  --stamp: #8e2c2a;
+  --sale: #1d5c40;
+  --archive: #7a7268;
+  --shadow: 0 1px 0 rgba(28, 25, 22, 0.04);
+  font-family: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(142, 44, 42, 0.06), transparent 28rem),
+    var(--paper);
+  color: var(--ink);
+}
+a { color: inherit; }
+.wrap { width: min(46rem, calc(100% - 2rem)); margin: 0 auto; padding: 2.2rem 0 4rem; }
+.masthead { border-top: 2px solid var(--ink); padding-top: 0.9rem; }
+.eyebrow {
+  margin: 0;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+h1 {
+  margin: 0.35rem 0 0.4rem;
+  font-family: "Zen Old Mincho", "Yu Mincho", serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+}
+.lead { margin: 0; max-width: 38rem; line-height: 1.75; color: var(--muted); }
+.filters { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 1.4rem 0 0.4rem; }
+.filters button {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font: inherit;
+  cursor: pointer;
+}
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--sheet); border-color: var(--ink); }
+.section { margin-top: 1.8rem; }
+.section h2 {
+  margin: 0 0 0.7rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  font-weight: 500;
+  color: var(--muted);
+}
+.card {
+  display: grid;
+  grid-template-columns: 6.6rem 1fr;
+  gap: 0.9rem 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--line);
+  background: transparent;
+}
+.when { padding-top: 0.15rem; border-top: 3px solid var(--ink); }
+.card.upcoming .when { border-top-color: var(--stamp); }
+.card.onsale .when { border-top-color: var(--sale); }
+.card.archive .when { border-top-color: var(--archive); }
+.when .md {
+  display: block;
+  font-family: "Zen Old Mincho", serif;
+  font-size: 1.7rem;
+  line-height: 1.1;
+}
+.when .sub, .when .label { display: block; color: var(--muted); font-size: 0.78rem; margin-top: 0.15rem; }
+.card.upcoming .label { color: var(--stamp); }
+.brands { margin: 0; font-size: 0.78rem; letter-spacing: 0.08em; color: var(--muted); }
+.card h3 { margin: 0.15rem 0 0.35rem; font-family: "Zen Old Mincho", serif; font-size: 1.28rem; font-weight: 700; line-height: 1.4; }
+.card h3 a { text-decoration: none; }
+.card h3 a:hover { text-decoration: underline; }
+.summary, .note, .cond { margin: 0.2rem 0; line-height: 1.7; }
+.note { color: var(--muted); font-size: 0.92rem; }
+.models { margin: 0.45rem 0 0; padding: 0; list-style: none; color: var(--ink); }
+.models li { margin: 0.12rem 0; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.7rem; }
+.actions a {
+  text-decoration: none;
+  border: 1px solid var(--ink);
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.86rem;
+}
+.actions a.quiet { border-color: var(--line); color: var(--muted); }
+footer { margin-top: 2.4rem; color: var(--muted); font-size: 0.86rem; line-height: 1.7; }
+.detail { padding-top: 1.2rem; }
+.detail .back { color: var(--muted); text-decoration: none; }
+.facts { margin: 1rem 0; padding: 0; list-style: none; }
+.facts li { padding: 0.55rem 0; border-top: 1px solid var(--line); line-height: 1.6; }
+.facts strong { display: inline-block; min-width: 6.5rem; }
+@media (max-width: 640px) {
+  .card { grid-template-columns: 1fr; gap: 0.45rem; }
+  .when { display: flex; gap: 0.7rem; align-items: baseline; }
+}

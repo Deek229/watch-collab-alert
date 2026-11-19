@@ -1,0 +1,170 @@
+[
+  {
+    "id": "apc-casio-aq-240eac-2026",
+    "watch_brand": "CASIO",
+    "partner_brand": "A.P.C.",
+    "title": "A.P.C. × CASIO CLASSIC AQ-240EAC AQ-240EGAC",
+    "summary": "A.P.C.とCASIO CLASSICの第2弾です。AQ-240をベースにした2モデルで、オンラインの先行予約のあと店頭でも発売されています。",
+    "models": [
+      {
+        "ref": "AQ-240EAC",
+        "price_jpy": 13200,
+        "detail": "シルバー / ダークグリーン文字板"
+      },
+      {
+        "ref": "AQ-240EGAC",
+        "price_jpy": 15400,
+        "detail": "ゴールド"
+      }
+    ],
+    "preorder_start": "2026-11-12T10:00:00+09:00",
+    "preorder_end": "2026-11-16T10:00:00+09:00",
+    "release_at": "2026-11-17T16:00:00+09:00",
+    "conditions": [
+      "オンラインの先行予約にはメンバーシップ登録が必要でした",
+      "一部店舗は15:30から整理券でした"
+    ],
+    "channels": [
+      {
+        "name": "A.P.C.の販売案内",
+        "url": "https://www.apcjp.com/jpn/journal/a-p-c-x-casio-の販売について"
+      }
+    ],
+    "sources": [
+      {
+        "name": "A.P.C. Journal",
+        "url": "https://www.apcjp.com/jpn/journal/a-p-c-x-casio-の販売について"
+      }
+    ],
+    "notified": true,
+    "reminded": [],
+    "created_at": "2026-11-19T09:00:00+09:00"
+  },
+  {
+    "id": "kitsune-casio-aq-230eck-2026",
+    "watch_brand": "CASIO",
+    "partner_brand": "Café Kitsuné",
+    "title": "Café Kitsuné × CASIO AQ-230ECK",
+    "summary": "カフェ キツネとCASIO CLASSICのコラボです。抹茶グリーンのAQ-230ECKで、予約は9月1日10:00、発売は9月3日10:00でした。",
+    "models": [
+      {
+        "ref": "AQ-230ECK",
+        "price_jpy": 17600,
+        "detail": "抹茶グリーン"
+      }
+    ],
+    "preorder_start": "2026-09-01T10:00:00+09:00",
+    "release_at": "2026-09-03T10:00:00+09:00",
+    "conditions": [],
+    "channels": [
+      {
+        "name": "CASIOの商品ページ",
+        "url": "https://www.casio.com/jp/watches/casio/casio-classic/aq-230eck/"
+      }
+    ],
+    "sources": [
+      {
+        "name": "Real Sound",
+        "url": "https://realsound.jp/tech/2026/09/post-2509956.html"
+      }
+    ],
+    "notified": true,
+    "reminded": [],
+    "created_at": "2026-11-19T09:00:00+09:00"
+  },
+  {
+    "id": "mm6-timex-t80-2026",
+    "watch_brand": "TIMEX",
+    "partner_brand": "MM6 Maison Margiela",
+    "title": "MM6 Maison Margiela × TIMEX T80",
+    "summary": "発売後の編集部レビューです。T80のギフトセットは税込50,600円で、記事の時点では一部の販売サイトが完売していました。",
+    "note": "告知ではなく、買ったあとの記録です。",
+    "models": [
+      {
+        "ref": "T80",
+        "price_jpy": 50600,
+        "detail": "ギフトセット"
+      }
+    ],
+    "status_override": "ended",
+    "conditions": [],
+    "channels": [],
+    "sources": [
+      {
+        "name": "MEN'S NON-NO",
+        "url": "https://www.mensnonno.jp/fashion/new-topics/704286/area05/"
+      }
+    ],
+    "notified": true,
+    "reminded": [],
+    "created_at": "2026-11-19T09:00:00+09:00"
+  },
+  {
+    "id": "xg-g-shock-gm-6900xg-2026",
+    "watch_brand": "G-SHOCK",
+    "partner_brand": "XG",
+    "title": "XG × G-SHOCK GM-6900XG",
+    "summary": "XGとG-SHOCKのコラボです。GM-6900XGは39,600円で、発売は11月27日（金）です。時刻は出典で確認してください。",
+    "models": [
+      {
+        "ref": "GM-6900XG",
+        "price_jpy": 39600
+      }
+    ],
+    "conditions": [],
+    "channels": [
+      {
+        "name": "公式の発表",
+        "url": "https://www.casio.co.jp/release/2026/1112-gm-6900xg/"
+      },
+      {
+        "name": "公式の商品ページ",
+        "url": "https://www.casio.com/jp/watches/gshock/product.GM-6900XG-8/"
+      },
+      {
+        "name": "特設ページ",
+        "url": "https://gshock.casio.com/jp/contents/ambassador/xg/g-shock-xg-collab-vol2/"
+      }
+    ],
+    "sources": [
+      {
+        "name": "CASIO ニュースリリース",
+        "url": "https://www.casio.co.jp/release/2026/1112-gm-6900xg/"
+      }
+    ],
+    "notified": false,
+    "reminded": [],
+    "created_at": "2026-11-19T09:19:31+09:00",
+    "release_at": "2026-11-27"
+  },
+  {
+    "id": "wm-timex-2026",
+    "watch_brand": "TIMEX",
+    "partner_brand": "WM ブラウン",
+    "title": "WM ブラウン × TIMEX",
+    "summary": "WM ブラウンとTIMEXのコラボです。55,000円。",
+    "models": [
+      {
+        "ref": "",
+        "price_jpy": 55000,
+        "detail": "出典に書かれた価格"
+      }
+    ],
+    "conditions": [],
+    "channels": [
+      {
+        "name": "公式サイト",
+        "url": "https://timex.com/"
+      }
+    ],
+    "sources": [
+      {
+        "name": "HODINKEE JP",
+        "url": "https://hodinkee.jp/articles/wm-brown-x-timex"
+      }
+    ],
+    "notified": false,
+    "reminded": [],
+    "created_at": "2026-11-19T09:19:32+09:00"
+  }
+]

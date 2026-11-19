@@ -1,0 +1,44 @@
+[
+  {
+    "name": "CASIO ニュースリリース",
+    "type": "html",
+    "url": "https://www.casio.co.jp/release/",
+    "max_links": 25
+  },
+  {
+    "name": "Hypebeast JP",
+    "type": "rss",
+    "url": "https://hypebeast.com/jp/feed",
+    "max_items": 20
+  },
+  {
+    "name": "FASHIONSNAP",
+    "type": "rss",
+    "url": "https://www.fashionsnap.com/rss.xml",
+    "max_items": 30
+  },
+  {
+    "name": "Watch LIFE NEWS",
+    "type": "rss",
+    "url": "https://www.powerwatch.jp/feed",
+    "max_items": 15
+  },
+  {
+    "name": "WATCHNAVI",
+    "type": "rss",
+    "url": "https://watchnavi.getnavi.jp/feed",
+    "max_items": 30
+  },
+  {
+    "name": "HODINKEE JP",
+    "type": "rss",
+    "url": "https://www.hodinkee.jp/articles.rss",
+    "max_items": 15
+  },
+  {
+    "name": "WWDJAPAN",
+    "type": "rss",
+    "url": "https://www.wwdjapan.com/feed",
+    "max_items": 40
+  }
+]

@@ -178,13 +178,17 @@
         "ref": "GM-2110HDN"
       },
       {
-        "ref": "GM-2100"
+        "ref": "GM-2100",
+        "price_jpy": 66000
       },
       {
         "ref": "GMC-2500"
       },
       {
         "ref": "GAC-2500"
+      },
+      {
+        "ref": "DW-6900MTM"
       }
     ],
     "conditions": [],
@@ -193,10 +197,16 @@
       {
         "name": "Hypebeast JP",
         "url": "https://hypebeast.com/jp/2026/11/g-shock-hidden-ny-collaborative-gm-2110hdn-watch-release-info"
+      },
+      {
+        "name": "Watch LIFE NEWS",
+        "url": "https://www.powerwatch.jp/2026/11/24/gshock-81/?utm_source=rss&utm_medium=rss&utm_campaign=gshock-81"
       }
     ],
     "notified": false,
     "reminded": [],
-    "created_at": "2026-11-20T12:48:45+09:00"
+    "created_at": "2026-11-20T12:48:45+09:00",
+    "preorder_start": "2026-12-01",
+    "release_at": "2026-12-05"
   }
 ]

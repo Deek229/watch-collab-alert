@@ -208,5 +208,54 @@
     "created_at": "2026-11-20T12:48:45+09:00",
     "preorder_start": "2026-12-01",
     "release_at": "2026-12-05"
+  },
+  {
+    "id": "0c0a49f5-citizen-p-38-2026",
+    "watch_brand": "CITIZEN",
+    "partner_brand": "薬屋のひとりごと",
+    "title": "薬屋のひとりごと × CITIZEN P-38",
+    "summary": "薬屋のひとりごととCITIZENのコラボです。P-38、47,080円。",
+    "models": [
+      {
+        "ref": "P-38",
+        "price_jpy": 47080
+      }
+    ],
+    "conditions": [],
+    "channels": [],
+    "sources": [
+      {
+        "name": "Watch LIFE NEWS",
+        "url": "https://www.powerwatch.jp/2026/11/26/citizen-195/?utm_source=rss&utm_medium=rss&utm_campaign=citizen-195"
+      }
+    ],
+    "notified": false,
+    "reminded": [],
+    "created_at": "2026-11-26T13:37:40+09:00"
+  },
+  {
+    "id": "kii-citizen-gbm-2100-2026",
+    "watch_brand": "CITIZEN",
+    "partner_brand": "Kii:",
+    "title": "Kii: × CITIZEN GBM-2100",
+    "summary": "Kii:とCITIZENのコラボです。GBM-2100、33,000円。発売は11月13日（金）・時刻は出典で確認。",
+    "models": [
+      {
+        "ref": "GBM-2100",
+        "price_jpy": 33000
+      }
+    ],
+    "conditions": [],
+    "channels": [],
+    "sources": [
+      {
+        "name": "Watch LIFE NEWS",
+        "url": "https://www.powerwatch.jp/2026/11/25/citizen-196/?utm_source=rss&utm_medium=rss&utm_campaign=citizen-196"
+      }
+    ],
+    "notified": false,
+    "reminded": [],
+    "created_at": "2026-11-26T13:37:42+09:00",
+    "release_at": "2026-11-13"
   }
 ]

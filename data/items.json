@@ -201,6 +201,10 @@
       {
         "name": "Watch LIFE NEWS",
         "url": "https://www.powerwatch.jp/2026/11/24/gshock-81/?utm_source=rss&utm_medium=rss&utm_campaign=gshock-81"
+      },
+      {
+        "name": "Watch LIFE NEWS",
+        "url": "https://www.powerwatch.jp/2026/11/26/gshock-82/?utm_source=rss&utm_medium=rss&utm_campaign=gshock-82"
       }
     ],
     "notified": false,
@@ -257,5 +261,30 @@
     "reminded": [],
     "created_at": "2026-11-26T13:37:42+09:00",
     "release_at": "2026-11-13"
+  },
+  {
+    "id": "e5746739-swatch-2026",
+    "watch_brand": "SWATCH",
+    "partner_brand": "オメガ",
+    "title": "オメガ × SWATCH",
+    "summary": "オメガとSWATCHのコラボです。63,800円。",
+    "models": [
+      {
+        "ref": "",
+        "price_jpy": 63800,
+        "detail": "出典に書かれた価格"
+      }
+    ],
+    "conditions": [],
+    "channels": [],
+    "sources": [
+      {
+        "name": "WWDJAPAN",
+        "url": "https://www.wwdjapan.com/articles/2562123"
+      }
+    ],
+    "notified": false,
+    "reminded": [],
+    "created_at": "2026-11-27T13:40:06+09:00"
   }
 ]
